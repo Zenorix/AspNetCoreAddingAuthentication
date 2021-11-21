@@ -46,10 +46,10 @@ namespace WishListTests
                 file = streamReader.ReadToEnd();
             }
 
-            var pattern = @"app.UseAuthentication[(]\s*?[)]\s*?;\s*?app.UseMvc";
+            var pattern = @"app.UseAuthentication[(]\s*?[)]\s*?;\s*?app.UseRouting";
             var rgx = new Regex(pattern);
 
-            Assert.True(rgx.IsMatch(file), "`Startup.Configure` should call `UseAuthentication` before `UseMvcWithDefaultRoute`.");
+            Assert.True(rgx.IsMatch(file), "`Startup.Configure` should call `UseAuthentication` before `UseRouting`.");
         }
     }
 }
